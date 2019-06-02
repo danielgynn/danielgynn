@@ -1,3 +1,3 @@
 // custom typefaces
-import "typeface-montserrat"
-import "typeface-merriweather"
+import "typeface-spectral"
+import "typeface-work-sans"

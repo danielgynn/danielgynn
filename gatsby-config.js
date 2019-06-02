@@ -3,9 +3,11 @@ module.exports = {
     title: `Daniel Gynn`,
     author: `Daniel Gynn`,
     description: `A starter blog demonstrating what Gatsby can do.`,
+    mainDescription: 'Daniel is a frontend engineer and product design with over four years of professional experience and a degree in Computer Science.  I\'m currently working with Filament AI, designing and building knowledge management dashboards powered by artificial intelligence models.',
     siteUrl: `https://danielgynn.com/`,
     social: {
       twitter: `danielgynn`,
+      instagram: `danielgynn`
     },
   },
   plugins: [
