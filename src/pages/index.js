@@ -1,12 +1,26 @@
 import React, { Component } from "react";
 import { graphql } from "gatsby";
 import Image from "gatsby-image";
+import InstaFeed from 'instafeed.js';
 
 import { rhythm, scale } from "../utils/typography";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 
+const instaFeed = new InstaFeed({
+  accessToken: '244718663.1677ed0.007e2acb0e424789a504618cee9f4169',
+  get: 'user',
+  userId: '244718663',
+  sortBy: 'most-recent',
+  limit: '6',
+  resolution: 'standard_resolution'
+});
+
 class SiteIndex extends Component {
+  componentWillMount() {
+    instaFeed.run();
+  }
+
   render() {
     const { data, location } = this.props;
     const { author, title, mainDescription } = data.site.siteMetadata;
@@ -19,7 +33,7 @@ class SiteIndex extends Component {
           display: 'flex',
           justifyContent: 'space-between'
         }}>
-          <div style={ {
+          <div className="profile-description" style={ {
             width: '50%',
             marginRight: '1rem'
           }}>
@@ -39,7 +53,7 @@ class SiteIndex extends Component {
             </p>
           </div>
 
-          <div style={ {
+          <div className="profile-picture" style={ {
             display: 'flex',
             justifyContent: 'flex-end',
             width: '50%'
@@ -87,6 +101,12 @@ class SiteIndex extends Component {
             <p style={ {margin: '0'} }>2015—2016</p>
             <p style={ {margin: '0'} }></p>
           </div>
+        </div>
+
+        <div>
+          <h3 style={ {marginBottom: 0} }>Recent Photos</h3>
+          <div style={ {marginTop: `${rhythm(1)}`} } id="instafeed" className='instafeed'></div>
+          <p>View more on <a href="https://instagram.com/danielgynn" target="_blank" rel="noopener noreferrer">Instagram →</a></p>
         </div>
       </Layout>
     )

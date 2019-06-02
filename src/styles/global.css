@@ -1,0 +1,46 @@
+.instafeed {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    max-height: 150px;
+}
+
+.instafeed img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    margin-right: 1rem;
+}
+
+.instafeed img:hover {
+    opacity: .7;
+}
+
+.instafeed a {
+    width: 16%;
+    box-shadow: none;
+}
+
+@media only screen and (max-width: 768px) {
+    .instafeed {
+        flex-wrap: wrap;
+        max-height: unset;
+    }
+
+    .instafeed a {
+        width: 49%;
+        margin-bottom: 1rem;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .profile-description {
+        width: 95% !important;
+    }
+
+    .profile-picture {
+        width: 0%;
+        display: none;
+        opacity: 0;
+    }
+}
