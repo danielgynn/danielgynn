@@ -1,11 +1,11 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
-    author: `Kyle Mathews`,
+    title: `Daniel Gynn`,
+    author: `Daniel Gynn`,
     description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
+    siteUrl: `https://danielgynn.com/`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `danielgynn`,
     },
   },
   plugins: [
@@ -57,10 +57,10 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
+        name: `Daniel Gynn`,
+        short_name: `Daniel Gynn`,
         start_url: `/`,
-        background_color: `#ffffff`,
+        background_color: `#f9f8f6`,
         theme_color: `#663399`,
         display: `minimal-ui`,
         icon: `content/assets/gatsby-icon.png`,
