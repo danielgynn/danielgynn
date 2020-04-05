@@ -9,35 +9,42 @@ import { rhythm } from "../utils/typography"
 class BlogIndex extends React.Component {
   render() {
     const { data } = this.props
-    const siteTitle = data.site.siteMetadata.title
+    const siteTitle = data.site.siteMetadata.initials
     const posts = data.allMarkdownRemark.edges
+
+    const showBlog = false;
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title="Blog" />
-        <Bio />
-        {posts.map(({ node }) => {
-          const title = node.frontmatter.title || node.fields.slug
-          return (
-            <div key={node.fields.slug}>
-              <h3
-                style={{
-                  marginBottom: rhythm(1 / 4),
-                }}
-              >
-                <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
-                  {title}
-                </Link>
-              </h3>
-              <small>{node.frontmatter.date}</small>
-              <p
-                dangerouslySetInnerHTML={{
-                  __html: node.frontmatter.description || node.excerpt,
-                }}
-              />
-            </div>
-          )
-        })}
+        <p>Page under construction...</p>
+        { showBlog && (
+          <div>
+            <Bio />
+            {posts.map(({ node }) => {
+              const initials = node.frontmatter.title || node.fields.slug
+              return (
+                <div key={node.fields.slug}>
+                  <h3
+                    style={{
+                      marginBottom: rhythm(1 / 4),
+                    }}
+                  >
+                    <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
+                      {initials}
+                    </Link>
+                  </h3>
+                  <small>{node.frontmatter.date}</small>
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: node.frontmatter.description || node.excerpt,
+                    }}
+                  />
+                </div>
+              )
+            })}
+          </div>
+        ) }
       </Layout>
     )
   }
@@ -49,7 +56,7 @@ export const pageQuery = graphql`
   query {
     site {
       siteMetadata {
-        title
+        initials
       }
     }
     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {

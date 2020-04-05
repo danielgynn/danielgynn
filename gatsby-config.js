@@ -1,5 +1,6 @@
 module.exports = {
   siteMetadata: {
+    initials: 'DG',
     title: `Daniel Gynn`,
     author: `Daniel Gynn`,
     description: `A starter blog demonstrating what Gatsby can do.`,
