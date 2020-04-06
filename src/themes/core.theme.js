@@ -14,8 +14,7 @@ export const core_theme = {
     colors: {
         text: '#182235',
         background: '#2a2a2a',
-        msag: '#192a56',
-        primary: '#245c8a',
+        primary: '#2997ff',
         secondary: '#00a3db',
         tertiary: '#f5a623',
         error: '#e74c3c',

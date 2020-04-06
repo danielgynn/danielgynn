@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 
-import Layout from "../components/layout"
+import PageLayout from "../components/PageLayout"
 import SEO from "../components/seo"
 
 class PortfolioIndex extends React.Component {
@@ -10,10 +10,10 @@ class PortfolioIndex extends React.Component {
     const siteTitle = data.site.siteMetadata.initials
 
     return (
-      <Layout location={this.props.location} title={siteTitle}>
+      <PageLayout location={this.props.location} title={siteTitle}>
         <SEO title="Portfolio" />
         <p>Page under construction...</p>
-      </Layout>
+      </PageLayout>
     )
   }
 }

@@ -2,7 +2,7 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 
 import Bio from "../components/bio"
-import Layout from "../components/layout"
+import PageLayout from "../components/PageLayout"
 import SEO from "../components/seo"
 import { rhythm } from "../utils/typography"
 
@@ -15,7 +15,7 @@ class BlogIndex extends React.Component {
     const showBlog = false;
 
     return (
-      <Layout location={this.props.location} title={siteTitle}>
+      <PageLayout location={this.props.location} title={siteTitle}>
         <SEO title="Blog" />
         <p>Page under construction...</p>
         { showBlog && (
@@ -45,7 +45,7 @@ class BlogIndex extends React.Component {
             })}
           </div>
         ) }
-      </Layout>
+      </PageLayout>
     )
   }
 }

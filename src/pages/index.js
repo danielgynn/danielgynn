@@ -1,22 +1,14 @@
-import React, { Component } from "react";
-import { graphql } from "gatsby";
-import Image from "gatsby-image";
+import React, { Component } from 'react';
+import { graphql } from 'gatsby';
+import Image from 'gatsby-image';
 import Styled from 'styled-components';
-import InstaFeed from 'instafeed.js';
 import breakpoint from 'styled-components-breakpoint';
 
-import { rhythm, scale } from "../utils/typography";
-import Layout from "../components/layout";
-import SEO from "../components/seo";
-
-const instaFeed = new InstaFeed({
-	accessToken: '244718663.1677ed0.007e2acb0e424789a504618cee9f4169',
-	get: 'user',
-	userId: '244718663',
-	sortBy: 'most-recent',
-	limit: '6',
-	resolution: 'standard_resolution'
-});
+import { scale } from '../utils/typography';
+import PageLayout from '../components/PageLayout';
+import ProfileList from '../components/ProfileList';
+import SEO from '../components/seo';
+import InstagramFeed from '../components/InstagramFeed';
 
 const ProfileContainer = Styled.div`
 	display: flex;
@@ -32,6 +24,21 @@ const ProfileContainer = Styled.div`
 	${ breakpoint('xl')`
 		flex-direction: row;
 	` }
+`;
+
+const ProfileHeader = Styled.h2`
+	${ {...scale(1)} };
+	font-family: Spectral, serif;
+	margin-top: 0;
+	font-style: italic;
+	font-weight: 400;
+	line-height: 3rem;
+`;
+
+const ProfileDescription = Styled.p`
+	${ {...scale(.25)} };
+	font-weight: 400;
+	font-family: Work Sans, sans-serif;
 `;
 
 const ProfileImageWrapper = Styled.div`
@@ -78,7 +85,7 @@ const ProfileImage = Styled.figure`
 	}
 `;
 
-const ProfileDescription = Styled.div`
+const ProfileIntroWrapper = Styled.div`
 	width: 100%;
 
 	${ breakpoint('md')`
@@ -97,106 +104,68 @@ const Figure = Styled.figure`
 `;
 
 class SiteIndex extends Component {
-	componentWillMount() {
-		instaFeed.run();
-	}
-
 	render() {
 		const { data, location } = this.props;
 		const { author, initials, mainDescription } = data.site.siteMetadata;
 
     	return (
-		<Layout location={ location } title={ initials } pageWidth={ 36 }>
-			<SEO title="Daniel Gynn" />
+			<PageLayout location={ location } title={ initials } pageWidth={ 36 }>
+				<SEO title='Daniel Gynn' />
 
-			<ProfileContainer>
-				<ProfileDescription className="profile-description">
-					<h2 style={
-					{
-						...scale(1),
-						fontFamily: `Spectral, serif`,
-						marginTop: '0',
-						fontStyle: 'italic',
-						fontWeight: '400',
-						lineHeight: '3rem'
-					}}>
-					<strong>Daniel Gynn – </strong>Frontend Engineer & Product Designer based in London, UK.
-					</h2>
-					<p style={ {...scale(.25), fontWeight: '400', fontFamily: 'Work Sans, sans-serif'} }>
-					{ mainDescription }
-					</p>
-				</ProfileDescription>
+				<ProfileContainer>
+					<ProfileIntroWrapper>
+						<ProfileHeader>
+							<strong>Daniel Gynn – </strong>Frontend Engineer & Product Designer based in London, UK.
+						</ProfileHeader>
+						<ProfileDescription>{ mainDescription }</ProfileDescription>
+					</ProfileIntroWrapper>
 
-				<ProfileImageWrapper>
-					<ProfileImage>
-						<Image
-							fixed={data.avatar.childImageSharp.fixed}
-							alt={author}
-							imgStyle={{
-								width: `100%`,
-							}}
-						/>
-						<Figure>Shot by Smitha Sanjeev at Chiswick Gardens</Figure>
-					</ProfileImage>	
-				</ProfileImageWrapper>
-			</ProfileContainer>
+					<ProfileImageWrapper>
+						<ProfileImage>
+							<Image
+								fixed={data.avatar.childImageSharp.fixed}
+								alt={ author }
+								imgStyle={ {width: `100%`} }
+							/>
+							<Figure>Shot by Smitha Sanjeev at Chiswick Gardens</Figure>
+						</ProfileImage>	
+					</ProfileImageWrapper>
+				</ProfileContainer>
 
-			<div>
-			<h3 style={ {marginBottom: 0} }>Education</h3>
-			<div style={ {marginTop: `${rhythm(.5)}`} }>
-				<p style={ {margin: '0'} }>Computer Science with a Year in Industry, <a href="https://www.kent.ac.uk/">University of Kent</a></p>
-				<p style={ {margin: '0', fontStyle: 'italic'} }>2013–2017</p>
-			</div>
-			</div>
+				<ProfileList
+					title={ 'Education' }
+					list={ [
+						{text: `Computer Science with a Year in Industry`, sub: `2013–2017`, link: `https://www.kent.ac.uk/`, linkText: `University of Kent`}
+					] }
+				/>
 
-			<div>
-			<h3 style={ {marginBottom: 0} }>Career</h3>
-			<div style={ {marginTop: `${rhythm(.5)}`} }>
-				<p style={ {margin: '0'} }>Lead Frontend Engineer, <a href="https://filament.ai">Filament AI</a></p>
-				<p style={ {margin: '0', fontStyle: 'italic'} }>2019—Present</p>
-			</div>
+				<ProfileList
+					title={ 'Career' }
+					list={ [
+						{text: `Lead Frontend Engineer`, sub: `2019—Present`, link: `https://filament.ai`, linkText: `Filament AI`},
+						{text: `Frontend Engineer`, sub: `2019`, link: `https://filament.ai`, linkText: `Filament AI`},
+						{text: `Frontend Developer`, sub: `2016-2017`, link: `https://repositive.io`, linkText: `Repositive`},
+						{text: `Junior Web Developer`, sub: `2015-2016`, link: `https://repositive.io`, linkText: `Repositive`}
+					] }
+				/>
 
-			<div style={ {marginTop: `${rhythm(.5)}`} }>
-				<p style={ {margin: '0'} }>Frontend Engineer, <a href="https://filament.ai">Filament AI</a></p>
-				<p style={ {margin: '0', fontStyle: 'italic'} }>2017—2019</p>
-			</div>
+				<ProfileList
+					title={ 'Speaking' }
+					list={ [
+						{text: `Ember London`, sub: `11th August, 2016`, link: `https://vimeo.com/178828815`, linkText: `A Beginner's Journey into Ember.js`},
+						{text: `CambridgeJS`, sub: `11th July, 2016`, link: `http://danielgynn-cambjs.surge.sh`, linkText: `Building Ambitious Web Applications with Ember.js`}
+					] }
+				/>
 
-			<div style={ {marginTop: `${rhythm(.5)}`} }>
-				<p style={ {margin: '0'} }>Frontend Developer, <a href="https://repositive.io">Repositive</a></p>
-				<p style={ {margin: '0', fontStyle: 'italic'} }>2016—2017</p>
-			</div>
-
-			<div style={ {marginTop: `${rhythm(.5)}`} }>
-				<p style={ {margin: '0'} }>Junior Web Developer, <a href="https://repositive.io">Repositive</a></p>
-				<p style={ {margin: '0', fontStyle: 'italic'} }>2015—2016</p>
-			</div>
-			</div>
-
-			<div>
-				<h3 style={ {marginBottom: 0} }>Speaking</h3>
-				<div style={ {marginTop: `${rhythm(.5)}`} }>
-					<p style={ {margin: '0'} }>Ember London, <a href="https://vimeo.com/178828815" target="_blank">A Beginner's Journey into Ember.js</a></p>
-					<p style={ {margin: '0', fontStyle: 'italic'} }>11th August, 2018</p>
-				</div>
-				<div style={ {marginTop: `${rhythm(.5)}`} }>
-					<p style={ {margin: '0'} }>CambridgeJS, <a href="http://danielgynn-cambjs.surge.sh" target="_blank">Building Ambitious Web Applications with Ember.js</a></p>
-					<p style={ {margin: '0', fontStyle: 'italic'} }>11th July, 2018</p>
-				</div>
-			</div>
-
-			<div>
-				<h3 style={ {marginBottom: 0} }>Connect</h3>
-				<ul style={ {marginTop: `${rhythm(.5)}`} }>
-					<li style={ {margin: '0 0 0 2rem'} }><a href="https://twitter.com/danielgynn" target="_blank">Twitter</a></li>
-				</ul>
-			</div>
-
-			<div>
-			<h3 style={ {marginBottom: 0} }>Recent Photos</h3>
-			<div style={ {marginTop: `${rhythm(1)}`} } id="instafeed" className='instafeed'></div>
-			<p>View more on <a href="https://instagram.com/danielgynn" target="_blank" rel="noopener noreferrer">Instagram →</a></p>
-			</div>
-		</Layout>
+				<ProfileList
+					title={ 'Connect' }
+					list={ [
+						{text: `Twitter`, link: `https://twitter.com/danielgynn`, linkText: `@danielgynn`},
+					] }
+				/>
+				
+				<InstagramFeed />
+			</PageLayout>
 		)
  	}
 }
@@ -205,20 +174,20 @@ export default SiteIndex;
 
 export const pageQuery = graphql`
     query {
-      avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
-        childImageSharp {
-          fixed(width: 500, height: 500) {
-            ...GatsbyImageSharpFixed
-          }
-        }
-      }
-      site {
-          siteMetadata {
-              initials
-              title
-              author
-              mainDescription
-          }
-      }
+		avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
+			childImageSharp {
+				fixed(width: 500, height: 500) {
+					...GatsbyImageSharpFixed
+				}
+			}
+		}
+		site {
+			siteMetadata {
+				initials
+				title
+				author
+				mainDescription
+			}
+		}
     }
 `
