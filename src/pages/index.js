@@ -45,19 +45,21 @@ const ProfileHeaderContainer = Styled.div`
 `;
 
 const ProfileHeader = Styled.h2`
-	${ {...scale(1.25)} };
+	${ {...scale(1.2)} };
 	font-family: Spectral, serif;
 	margin-top: 0;
 	font-style: italic;
 	font-weight: 400;
-	line-height: 4rem;
+	line-height: 3.5rem;
 
 	${ breakpoint('md')`
 		${ {...scale(1.25)} };
+		line-height: 3.5rem;
 	` }
 
 	${ breakpoint('xl')`
 		${ {...scale(1.5)} };
+		line-height: 4rem;
 	` }
 `;
 
