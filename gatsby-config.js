@@ -6,12 +6,10 @@ module.exports = {
 		email: 'danielgynn94@gmail.com',
 		description: `Daniel is a frontend engineer and product designer with over four years of professional experience and a degree in Computer Science.`,
 		mainDescription: `
-			Hey there — I'm a frontend engineer and product designer with over five years of professional experience and a degree in computer science.
+			Hey there — I'm a frontend engineer and product designer with over five years of professional experience and a degree in computer science, specialising in React/Redux stacks.
 			I've worked in various industries, including: artificial intelligence, healthcare, and genomics.
-			I got into frontend engineering as the perfect way to blend my interests in engineering principles and utilising my keen eye for design.
+			I became involved in frontend engineering as the perfect way to blend my interests in engineering principles and utilising my keen eye for design.
 		`,
-		
-		// 'Daniel is a frontend engineer and product designer with over four years of professional experience and a degree in Computer Science.  I\'m currently working with Filament AI, designing and building knowledge management dashboards powered by artificial intelligence models.',
 		siteUrl: `https://danielgynn.com/`,
 		social: {
 			twitter: `https://twitter.com/danielgynn`,
@@ -59,6 +57,7 @@ module.exports = {
 		},
 		`gatsby-transformer-sharp`,
 		`gatsby-plugin-sharp`,
+		`gatsby-plugin-styled-components`,
 		{
 			resolve: `gatsby-plugin-google-analytics`,
 			options: {},

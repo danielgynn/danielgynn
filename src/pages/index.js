@@ -72,6 +72,7 @@ const ProfileDescription = Styled.p`
 const ProfileImageWrapper = Styled.div`
 	display: flex;
 	justify-content: flex-start;
+	flex-direction: column;
 	width: 100%;
 	margin-top: 2rem;
 
@@ -99,6 +100,12 @@ const ProfileIntroWrapper = Styled.div`
 	${ breakpoint('xl')`
 		width: 85%;
 	` }
+`;
+
+const Figure = Styled.figcaption`
+	font-size: .75rem;
+	margin-top: 5px;
+	opacity: .75;
 `;
 
 const ProfileListContainer = Styled.div`
@@ -176,12 +183,13 @@ class SiteIndex extends Component {
 								] }
 							/>
 						</div>
-							<ProfileImageWrapper>
-								<ProfileImage
-									fixed={data.avatar.childImageSharp.fixed}
-									alt={ author }
-								/>
-							</ProfileImageWrapper>
+						<ProfileImageWrapper>
+							<ProfileImage
+								fixed={data.avatar.childImageSharp.fixed}
+								alt={ author }
+							/>
+							<Figure>Shot by Smitha Sanjeev — Arthur's Seat, Edinburgh</Figure>
+						</ProfileImageWrapper>
 					</ProfileListContainer>
 						
 				</ProfileContainer>			

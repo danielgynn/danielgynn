@@ -21,7 +21,7 @@ const NavTitle = Styled.h3`
 
 const StyledNavbar = Styled.nav`
 	margin-bottom: 4.5rem;
-	padding: 3rem 0rem;
+	padding: 0rem 0rem 3rem;
 	width: 100%;
 	display: flex;
 	align-items: flex-start;
@@ -29,11 +29,13 @@ const StyledNavbar = Styled.nav`
 	justify-content: space-between;
 
 	${ breakpoint('md')`
+		padding: 3rem 0rem;
 		align-items: center;
 		flex-direction: row;
 	` }
 
 	${ breakpoint('xl')`
+		padding: 3rem 0rem;
 		align-items: center;
 		flex-direction: row;
 	` }
