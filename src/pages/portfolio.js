@@ -7,10 +7,16 @@ import SEO from "../components/seo"
 class PortfolioIndex extends React.Component {
   render() {
     const { data } = this.props
-    const siteTitle = data.site.siteMetadata.initials
+		const { location, initials, title, email, social } = data.site.siteMetadata;
 
     return (
-      <PageLayout location={this.props.location} title={siteTitle}>
+      <PageLayout
+      location={ location }
+      initials={ initials }
+      title={title}
+      email={email}
+      social={social}
+    >
         <SEO title="Portfolio" />
         <p>Page under construction...</p>
       </PageLayout>
@@ -22,10 +28,20 @@ export default PortfolioIndex
 
 export const pageQuery = graphql`
   query {
-    site {
-      siteMetadata {
-        initials
-      }
-    }
+		site {
+			siteMetadata {
+				initials
+				title
+				email
+				author
+				mainDescription
+				social {
+					twitter
+					instagram
+					goodreads
+					linkedin
+				}
+			}
+		}
   }
 `

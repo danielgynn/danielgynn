@@ -13,8 +13,9 @@ export default class ProfileList extends Component {
                 { list && list.map((item, index) => (
                     <div style={ {marginTop: `${rhythm(.5)}`} } key={ index }>
                         <p style={ {margin: '0'} }>
-                            { item.link ? `${ item.text }, ` : item.text }
+                            { item.link || item.linkText ? `${ item.text }, ` : item.text }
                             { item.link && (<a target="_blank" rel="noopener noreferrer" href={ item.link }>{ item.linkText }</a>) }
+                            { !item.link && item.linkText && item.linkText }
                         </p>
                         { item.sub && (
                             <p style={ {margin: '0', fontStyle: 'italic'} }>{ item.sub }</p>

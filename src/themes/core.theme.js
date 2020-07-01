@@ -1,6 +1,7 @@
 export const core_theme = {
     body: {
-        backgroundColor: '#fff',
+        backgroundColor: '#222831',
+        color: '#ececec',
         fontFamily: 'Nunito Sans, Helvetica, sans-serif',
         fontWeight: 500
     },
@@ -12,10 +13,10 @@ export const core_theme = {
         xl: 1200,
     },
     colors: {
-        text: '#182235',
-        background: '#2a2a2a',
-        primary: '#2997ff',
-        secondary: '#00a3db',
+        text: '#ececec',
+        background: '#222831',
+        primary: '#f2a365',
+        secondary: '#30475e',
         tertiary: '#f5a623',
         error: '#e74c3c',
         success: '#27ae60',
@@ -89,7 +90,7 @@ export const core_theme = {
         inputHeight: '45px',
         containerWidth: '1080px',
         container: {
-            desktop: '1080px',
+            desktop: '960px',
             mobile: '700px',
             tablet: '900px'
         },

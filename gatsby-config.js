@@ -3,12 +3,21 @@ module.exports = {
 		initials: 'DG',
 		title: `Daniel Gynn`,
 		author: `Daniel Gynn`,
+		email: 'danielgynn94@gmail.com',
 		description: `Daniel is a frontend engineer and product designer with over four years of professional experience and a degree in Computer Science.`,
-		mainDescription: 'Daniel is a frontend engineer and product designer with over four years of professional experience and a degree in Computer Science.  I\'m currently working with Filament AI, designing and building knowledge management dashboards powered by artificial intelligence models.',
+		mainDescription: `
+			Hey there — I'm a frontend engineer and product designer with over five years of professional experience and a degree in computer science.
+			I've worked in various industries, including: artificial intelligence, healthcare, and genomics.
+			I got into frontend engineering as the perfect way to blend my interests in engineering principles and utilising my keen eye for design.
+		`,
+		
+		// 'Daniel is a frontend engineer and product designer with over four years of professional experience and a degree in Computer Science.  I\'m currently working with Filament AI, designing and building knowledge management dashboards powered by artificial intelligence models.',
 		siteUrl: `https://danielgynn.com/`,
 		social: {
-		twitter: `danielgynn`,
-		instagram: `danielgynn`
+			twitter: `https://twitter.com/danielgynn`,
+			instagram: `https://instagram.com/danielgynn`,
+			linkedin: 'https://linkedin.com/in/danielgynn',
+			goodreads: 'https://www.goodreads.com/user/show/31069417-daniel-gynn'
 		},
 	},
 	plugins: [

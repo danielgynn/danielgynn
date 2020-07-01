@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import Image from 'gatsby-image';
 import Styled from 'styled-components';
 import breakpoint from 'styled-components-breakpoint';
@@ -8,14 +8,32 @@ import { scale } from '../utils/typography';
 import PageLayout from '../components/PageLayout';
 import ProfileList from '../components/ProfileList';
 import SEO from '../components/seo';
-import InstagramFeed from '../components/InstagramFeed';
 
 const ProfileContainer = Styled.div`
+ 	display: flex;
+	width: 100%;
+ 	justify-content: space-between;
+ 	flex-direction: column;
+	padding-bottom: 2rem;
+	width: 100%;
+	margin: 0 auto;
+
+	${ breakpoint('md')`
+		width: 100%;
+	`};
+
+	${ breakpoint('xl')`
+		width: 100%;
+	`};
+`;
+
+const ProfileHeaderContainer = Styled.div`
 	display: flex;
 	width: 100%;
 	justify-content: space-between;
 	flex-direction: column;
-	margin-top: 5rem;
+	margin-bottom: 2rem;
+	padding-bottom: 4rem;
 
 	${ breakpoint('md')`
 		flex-direction: column;
@@ -27,12 +45,20 @@ const ProfileContainer = Styled.div`
 `;
 
 const ProfileHeader = Styled.h2`
-	${ {...scale(1)} };
+	${ {...scale(1.25)} };
 	font-family: Spectral, serif;
 	margin-top: 0;
 	font-style: italic;
 	font-weight: 400;
-	line-height: 3rem;
+	line-height: 4rem;
+
+	${ breakpoint('md')`
+		${ {...scale(1.25)} };
+	` }
+
+	${ breakpoint('xl')`
+		${ {...scale(1.5)} };
+	` }
 `;
 
 const ProfileDescription = Styled.p`
@@ -45,6 +71,7 @@ const ProfileImageWrapper = Styled.div`
 	display: flex;
 	justify-content: flex-start;
 	width: 100%;
+	margin-top: 2rem;
 
 	${ breakpoint('md')`
 		width: 100%;
@@ -56,115 +83,106 @@ const ProfileImageWrapper = Styled.div`
 	` }
 `;
 
-const ProfileImage = Styled.figure`
-	${ breakpoint('xl')`
-		display: flex;
-		flex-direction: column;
-		align-items: flex-end;
-	`}
-
-	> div {
-		margin-bottom: 0;
-		height: 250px !important;
-		border-radius: 8px;
-		margin-top: 2rem;
-		width: 275px !important;
-
-		${ breakpoint('md')`
-			height: 275px !important;
-			width: 250px !important;
-			margin-top: 2rem;
-		` }
-
-		${ breakpoint('xl')`
-			width: 100% !important;
-			height: 325px !important;
-			margin-top: 0rem;
-			display: flex;
-		` }
-	}
+const ProfileImage = Styled(Image)`
+	max-width: 375px;
 `;
 
 const ProfileIntroWrapper = Styled.div`
 	width: 100%;
 
 	${ breakpoint('md')`
-		width: 80%;
+		width: 85%;
 	` }
 
 	${ breakpoint('xl')`
-		width: 60%;
+		width: 85%;
 	` }
 `;
 
-const Figure = Styled.figure`
-	font-size: .75rem;
-	color: #555d66;
-	margin-top: 5px;
+const ProfileListContainer = Styled.div`
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	flex-direction: column-reverse;
+
+	${ breakpoint('md')`
+		flex-direction: column-reverse;
+	` }
+
+	${ breakpoint('xl')`
+		flex-direction: row;
+	` }
+`;
+
+const Underline = Styled.u`
+	color: ${props => props.theme.colors.primary};
+	text-decoration: none;
 `;
 
 class SiteIndex extends Component {
 	render() {
 		const { data, location } = this.props;
-		const { author, initials, mainDescription } = data.site.siteMetadata;
+		const { author, title, email, initials, mainDescription, social } = data.site.siteMetadata;
 
     	return (
-			<PageLayout location={ location } title={ initials } pageWidth={ 36 }>
+			<PageLayout
+				location={ location }
+				initials={ initials }
+				title={title}
+				email={email}
+				social={social}
+			>
 				<SEO title='Daniel Gynn' />
 
 				<ProfileContainer>
-					<ProfileIntroWrapper>
-						<ProfileHeader>
-							<strong>Daniel Gynn – </strong>Frontend Engineer & Product Designer based in London, UK.
-						</ProfileHeader>
-						<ProfileDescription>{ mainDescription }</ProfileDescription>
-					</ProfileIntroWrapper>
+					<ProfileHeaderContainer>
+						<ProfileIntroWrapper>
+							<ProfileHeader>
+								<strong>Daniel Gynn </strong>is a <Underline>frontend engineer</Underline> & <Underline>product designer</Underline> living in London.
+							</ProfileHeader>
+						</ProfileIntroWrapper>
+					</ProfileHeaderContainer>
 
-					<ProfileImageWrapper>
-						<ProfileImage>
-							<Image
-								fixed={data.avatar.childImageSharp.fixed}
-								alt={ author }
-								imgStyle={ {width: `100%`} }
+					<ProfileDescription>{ mainDescription }</ProfileDescription>
+					<Link to="/portfolio">Read More →</Link>
+
+					<ProfileListContainer>
+						<div>
+							<ProfileList
+								title={ 'Education' }
+								list={ [
+									{text: `Computer Science with a Year in Industry`, sub: `2013–2017`, link: `https://www.kent.ac.uk/`, linkText: `University of Kent`}
+								] }
 							/>
-							<Figure>Shot by Smitha Sanjeev at Chiswick Gardens</Figure>
-						</ProfileImage>	
-					</ProfileImageWrapper>
-				</ProfileContainer>
 
-				<ProfileList
-					title={ 'Education' }
-					list={ [
-						{text: `Computer Science with a Year in Industry`, sub: `2013–2017`, link: `https://www.kent.ac.uk/`, linkText: `University of Kent`}
-					] }
-				/>
+							<ProfileList
+								title={ 'Career' }
+								list={ [
+									{text: `Lead Frontend Engineer`, sub: `2019—Present`, link: `https://filament.ai`, linkText: `Filament AI`},
+									{text: `Frontend Engineer`, sub: `2017-2019`, link: `https://filament.ai`, linkText: `Filament AI`},
+									{text: `Freelance Frontend Engineer`, sub: `2017-Present`, linkText: `Various`},
+									{text: `Frontend Developer`, sub: `2016-2017`, link: `https://repositive.io`, linkText: `Repositive`},
+									{text: `Junior Web Developer`, sub: `2015-2016`, link: `https://repositive.io`, linkText: `Repositive`}
+								] }
+							/>
 
-				<ProfileList
-					title={ 'Career' }
-					list={ [
-						{text: `Lead Frontend Engineer`, sub: `2019—Present`, link: `https://filament.ai`, linkText: `Filament AI`},
-						{text: `Frontend Engineer`, sub: `2019`, link: `https://filament.ai`, linkText: `Filament AI`},
-						{text: `Frontend Developer`, sub: `2016-2017`, link: `https://repositive.io`, linkText: `Repositive`},
-						{text: `Junior Web Developer`, sub: `2015-2016`, link: `https://repositive.io`, linkText: `Repositive`}
-					] }
-				/>
-
-				<ProfileList
-					title={ 'Speaking' }
-					list={ [
-						{text: `Ember London`, sub: `11th August, 2016`, link: `https://vimeo.com/178828815`, linkText: `A Beginner's Journey into Ember.js`},
-						{text: `CambridgeJS`, sub: `11th July, 2016`, link: `http://danielgynn-cambjs.surge.sh`, linkText: `Building Ambitious Web Applications with Ember.js`}
-					] }
-				/>
-
-				<ProfileList
-					title={ 'Connect' }
-					list={ [
-						{text: `Twitter`, link: `https://twitter.com/danielgynn`, linkText: `@danielgynn`},
-					] }
-				/>
-				
-				<InstagramFeed />
+							<ProfileList
+								title={ 'Speaking' }
+								list={ [
+									{text: `Ember London`, sub: `11th August, 2016`, link: `https://vimeo.com/178828815`, linkText: `A Beginner's Journey into Ember.js`},
+									{text: `CambridgeJS`, sub: `11th July, 2016`, link: `http://danielgynn-cambjs.surge.sh`, linkText: `Building Ambitious Web Applications with Ember.js`}
+								] }
+							/>
+						</div>
+							<ProfileImageWrapper>
+								<ProfileImage
+									fixed={data.avatar.childImageSharp.fixed}
+									alt={ author }
+								/>
+							</ProfileImageWrapper>
+					</ProfileListContainer>
+						
+				</ProfileContainer>			
 			</PageLayout>
 		)
  	}
@@ -174,9 +192,9 @@ export default SiteIndex;
 
 export const pageQuery = graphql`
     query {
-		avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
+		avatar: file(absolutePath: { regex: "/self.jpeg/" }) {
 			childImageSharp {
-				fixed(width: 500, height: 500) {
+				fixed(width: 300, height: 400) {
 					...GatsbyImageSharpFixed
 				}
 			}
@@ -185,8 +203,15 @@ export const pageQuery = graphql`
 			siteMetadata {
 				initials
 				title
+				email
 				author
 				mainDescription
+				social {
+					twitter
+					instagram
+					goodreads
+					linkedin
+				}
 			}
 		}
     }

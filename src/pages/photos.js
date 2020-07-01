@@ -9,10 +9,16 @@ import Photograph from '../components/Photograph';
 class PhotosIndex extends React.Component {
 	render() {
 		const { data } = this.props
-		const siteTitle = data.site.siteMetadata.initials;
+		const { location, initials, title, email, social } = data.site.siteMetadata;
 
 		return (
-			<PageLayout location={this.props.location} title={siteTitle}>
+			<PageLayout
+				location={ location }
+				initials={ initials }
+				title={title}
+				email={email}
+				social={social}
+			>
 				<SEO title='Photos' />
 
 				<div style={ {marginBottom: '3rem'}}>
@@ -126,6 +132,16 @@ export const pageQuery = graphql`
 		site {
 			siteMetadata {
 				initials
+				title
+				email
+				author
+				mainDescription
+				social {
+					twitter
+					instagram
+					goodreads
+					linkedin
+				}
 			}
 		}
 	}
