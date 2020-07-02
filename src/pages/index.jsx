@@ -131,7 +131,8 @@ const Underline = Styled.u`
 class SiteIndex extends Component {
 	render() {
 		const { data, location } = this.props;
-		const { author, title, email, initials, mainDescription, social } = data.site.siteMetadata;
+		const { author, title, email, initials, social } = data.site.siteMetadata;
+		const { profile, introduction } = data.allCopyJson.edges[0].node;
 
     	return (
 			<PageLayout
@@ -141,7 +142,7 @@ class SiteIndex extends Component {
 				email={email}
 				social={social}
 			>
-				<SEO title='Daniel Gynn' />
+				<SEO title='Home' />
 
 				<ProfileContainer>
 					<ProfileHeaderContainer>
@@ -152,36 +153,18 @@ class SiteIndex extends Component {
 						</ProfileIntroWrapper>
 					</ProfileHeaderContainer>
 
-					<ProfileDescription>{ mainDescription }</ProfileDescription>
+					<ProfileDescription>{introduction}</ProfileDescription>
 					<Link to="/portfolio">Read More →</Link>
 
 					<ProfileListContainer>
 						<div>
-							<ProfileList
-								title={ 'Education' }
-								list={ [
-									{text: `Computer Science with a Year in Industry`, sub: `2013–2017`, link: `https://www.kent.ac.uk/`, linkText: `University of Kent`}
-								] }
-							/>
-
-							<ProfileList
-								title={ 'Career' }
-								list={ [
-									{text: `Lead Frontend Engineer`, sub: `2019—Present`, link: `https://filament.ai`, linkText: `Filament AI`},
-									{text: `Frontend Engineer`, sub: `2017-2019`, link: `https://filament.ai`, linkText: `Filament AI`},
-									{text: `Freelance Frontend Engineer`, sub: `2017-Present`, linkText: `Various`},
-									{text: `Frontend Developer`, sub: `2016-2017`, link: `https://repositive.io`, linkText: `Repositive`},
-									{text: `Junior Web Developer`, sub: `2015-2016`, link: `https://repositive.io`, linkText: `Repositive`}
-								] }
-							/>
-
-							<ProfileList
-								title={ 'Speaking' }
-								list={ [
-									{text: `Ember London`, sub: `11th August, 2016`, link: `https://vimeo.com/178828815`, linkText: `A Beginner's Journey into Ember.js`},
-									{text: `CambridgeJS`, sub: `11th July, 2016`, link: `http://danielgynn-cambjs.surge.sh`, linkText: `Building Ambitious Web Applications with Ember.js`}
-								] }
-							/>
+							{profile.map((detail, detailIndex) => (
+								<ProfileList
+									key={detailIndex}
+									title={detail.name}
+									list={detail.list}
+								/>
+							))}
 						</div>
 						<ProfileImageWrapper>
 							<ProfileImage
@@ -215,12 +198,27 @@ export const pageQuery = graphql`
 				title
 				email
 				author
-				mainDescription
 				social {
 					twitter
 					instagram
 					goodreads
 					linkedin
+				}
+			}
+		}
+		allCopyJson {
+			edges {
+				node {
+					introduction
+					profile {
+						name
+						list {
+							text
+							sub
+							link
+							linkText
+						}
+					}
 				}
 			}
 		}

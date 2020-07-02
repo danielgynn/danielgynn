@@ -5,11 +5,6 @@ module.exports = {
 		author: `Daniel Gynn`,
 		email: 'danielgynn94@gmail.com',
 		description: `Daniel is a frontend engineer and product designer with over four years of professional experience and a degree in Computer Science.`,
-		mainDescription: `
-			Hey there — I'm a frontend engineer and product designer with over five years of professional experience and a degree in computer science, specialising in React/Redux stacks.
-			I've worked in various industries, including: artificial intelligence, healthcare, and genomics.
-			I became involved in frontend engineering as the perfect way to blend my interests in engineering principles and utilising my keen eye for design.
-		`,
 		siteUrl: `https://danielgynn.com/`,
 		social: {
 			twitter: `https://twitter.com/danielgynn`,
@@ -19,6 +14,14 @@ module.exports = {
 		},
 	},
 	plugins: [
+		`gatsby-transformer-json`,
+		{
+			resolve: `gatsby-source-filesystem`,
+			options: {
+				path: `${__dirname}/content/copy`,
+				name: `copy`,
+			},
+		},
 		{
 			resolve: `gatsby-source-filesystem`,
 			options: {

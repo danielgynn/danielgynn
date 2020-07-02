@@ -121,9 +121,9 @@ const Nav = ({title}) => (
 		</StyledLink>
 		<ul style={{ listStyle: `none`, float: `right`, margin: '0', display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>
 			<ListLink to='/'>About</ListLink>
-			<ListLink to='/portfolio/'>Portfolio</ListLink>
-			<ListLink to='/blog/'>Blog</ListLink>
-			<ListLink to='/photos/'>Photos</ListLink>
+			{/* <ListLink to='/portfolio/'>Portfolio</ListLink> */}
+			{/* <ListLink to='/blog/'>Blog</ListLink> */}
+			<ListLink to='/photos/'>Photography</ListLink>
 		</ul>
 	</StyledNavbar>
 );

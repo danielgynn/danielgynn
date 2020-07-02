@@ -66,7 +66,6 @@ export const pageQuery = graphql`
 				title
 				email
 				author
-				mainDescription
 				social {
 					twitter
 					instagram

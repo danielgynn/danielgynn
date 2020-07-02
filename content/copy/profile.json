@@ -1,0 +1,63 @@
+{
+    "introduction": "Hey there — I'm a frontend engineer and product designer with over four years of professional experience and a degree in computer science. I mostly specialise in React/Redux stacks, but I also have experience with Vue, Angular, and Ember.js. I've worked in various industries, including: artificial intelligence, healthcare, and genomics. I became involved in frontend engineering as the perfect way to blend my interests in engineering principles and utilising my keen eye for design.",
+    "profile": [{
+            "name": "Education",
+            "list": [{
+                "text": "Computer Science with a Year in Industry",
+                "sub": "2013-2017",
+                "link": "https://www.kent.ac.uk/",
+                "linkText": "University of Kent"
+            }]
+        },
+        {
+            "name": "Career",
+            "list": [{
+                    "text": "Lead Frontend Engineer",
+                    "sub": "2019—Present",
+                    "link": "https://filament.ai",
+                    "linkText": "Filament AI"
+                },
+                {
+                    "text": "Frontend Engineer",
+                    "sub": "2017-2019",
+                    "link": "https://filament.ai",
+                    "linkText": "Filament AI"
+                },
+                {
+                    "text": "Freelance Frontend Engineer",
+                    "sub": "2017-Present",
+                    "linkText": "Various"
+                },
+                {
+                    "text": "Frontend Developer",
+                    "sub": "2016-2017",
+                    "link": "https://repositive.io",
+                    "linkText": "Repositive"
+                },
+                {
+                    "text": "Junior Web Developer",
+                    "sub": "2015-2016",
+                    "link": "https://repositive.io",
+                    "linkText": "Repositive"
+                }
+            ]
+        },
+        {
+            "name": "Speaking",
+            "list": [{
+                    "text": "Ember London",
+                    "sub": "11th August, 2016",
+                    "link": "https://vimeo.com/178828815",
+                    "linkText": "A Beginner's Journey into Ember.js"
+                },
+                {
+                    "text": "CambridgeJS",
+                    "sub": "11th July, 2016",
+                    "link": "http://danielgynn-cambjs.surge.sh",
+                    "linkText": "Building Ambitious Web Applications with Ember.js"
+                }
+
+            ]
+        }
+    ]
+}

@@ -18,6 +18,11 @@ const GlobalStyle = createGlobalStyle`
     a:hover {
         text-decoration: underline;
     }
+
+    ::selection {
+        color: ${props => props.theme.colors.secondary}; 
+        background: ${props => props.theme.colors.primary};
+    }
 `;
 
 export default GlobalStyle;
