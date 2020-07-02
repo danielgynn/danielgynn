@@ -1,0 +1,58 @@
+{
+    "photos": [
+        {
+            "caption": "Rome, Italy",
+            "src": "../assets/photography/bicycle_thieves.jpeg",
+            "alt": "Bicycle Thieves – Rome, Italy",
+            "download": "https://unsplash.com/photos/CUh69eo3MyU"
+        },
+        {
+            "caption": "Munnar, Kerela, India",
+            "src": "../assets/photography/roads.jpg",
+            "alt": "Munnar, Kerela, India",
+            "download": "https://unsplash.com/photos/x1mGwkffsCU"
+        },
+        {
+            "caption": "Munnar, Kerela, India",
+            "src": "../assets/photography/sunset.jpg",
+            "alt": "Munnar, Kerela, India",
+            "download": "https://unsplash.com/photos/FR1PHbnkupg"
+        },
+        {
+            "caption": "Dubare Elephant Camp, Karnataka, India",
+            "src": "../assets/photography/elephant.jpg",
+            "alt": "Dubare Elephant Camp, Karnataka, India",
+            "download": "https://unsplash.com/photos/ZgXY1ZgoQog"
+        },
+        {
+            "caption": "Munnar, Kerela, India",
+            "src": "../assets/photography/kerela.jpg",
+            "alt": "Munnar, Kerela, India",
+            "download": "https://unsplash.com/photos/RWwwCvZfWX0"
+        },
+        {
+            "caption": "Edinburgh, Scotland, UK",
+            "src": "../assets/photography/edinburgh.jpg",
+            "alt": "Edinburgh, Scotland, UK",
+            "download": "https://unsplash.com/photos/k9EZzRow1cA"
+        },
+        {
+            "caption": "Munnar, Kerela, India",
+            "src": "../assets/photography/river.jpg",
+            "alt": "Munnar, Kerela, India",
+            "download": "https://unsplash.com/photos/cmFOJGJiAhE"
+        },
+        {
+            "caption": "Munnar, Kerela, India",
+            "src": "../assets/photography/tea.jpg",
+            "alt": "Munnar, Kerela, India",
+            "download": "https://unsplash.com/photos/M_FpXox8vTM"
+        },
+        {
+            "caption": "Munnar, Kerela, India",
+            "src": "../assets/photography/munnar.jpg",
+            "alt": "Munnar, Kerela, India",
+            "download": "https://unsplash.com/photos/rRY3KtlzeBc"
+        }
+    ]
+}

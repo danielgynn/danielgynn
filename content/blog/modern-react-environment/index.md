@@ -2,7 +2,7 @@
 title: Setting Up A Modern React Development Environment
 date: "2017-02-03T14:18:11.004Z"
 description: "Setting Up A Modern React Development Environment"
-header: "http://i.imgur.com/9RFQYBC.jpg"
+header: "https://i.imgur.com/9RFQYBC.jpg"
 ---
 
 React is a JavaScript library, built by Facebook, for building user interfaces. React was initially built to solve the problem of building large applications with data that changes over time. React applications are built heavily with components that are able to manage their own state individually and can be composed together to build complex interfaces. React components are built with JavaScript, meaning that data is easily transported between components, without having to be managed by the DOM.

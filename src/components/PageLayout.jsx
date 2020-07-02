@@ -123,7 +123,7 @@ const Nav = ({title}) => (
 			<ListLink to='/'>About</ListLink>
 			{/* <ListLink to='/portfolio/'>Portfolio</ListLink> */}
 			{/* <ListLink to='/blog/'>Blog</ListLink> */}
-			<ListLink to='/photos/'>Photography</ListLink>
+			<ListLink to='/photography/'>Photography</ListLink>
 		</ul>
 	</StyledNavbar>
 );
@@ -131,8 +131,6 @@ const Nav = ({title}) => (
 class PageLayout extends React.Component {
 	render() {
 		const { title, initials, email, social, children } = this.props;
-
-		console.log(social);
 		
 		return (
 			<ThemeProvider theme={ core_theme } className='App'>
