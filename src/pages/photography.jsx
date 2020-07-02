@@ -42,9 +42,8 @@ class PhotographyIndex extends React.Component {
 							...scale(1),
 							fontFamily: `Spectral, serif`,
 							marginTop: '0',
-							fontStyle: 'italic',
-							fontWeight: '400',
-							lineHeight: '3rem'
+							fontWeight: '900',
+							lineHeight: '2rem'
 						}}>
 						Photography
 					</h2>
