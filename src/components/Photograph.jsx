@@ -5,10 +5,39 @@ import breakpoint from 'styled-components-breakpoint';
 import PropTypes from 'prop-types';
 
 const Figure = Styled.figure`
+	${props => props.maxWidth && (`
+		max-width: 100%;
+		width: 100%;
+	`)};
+
+	${props => props.maxHeight && (`
+		max-height: ${props.maxHeight + 30};
+		min-height: ${props.maxHeight + 30};
+		height: ${props.maxHeight + 30};
+
+		> div {
+			max-height: ${props.maxHeight}px;
+			min-height: ${props.maxHeight}px;
+			height: ${props.maxHeight}px;
+		}
+	`)};
+
+	${breakpoint('md')`
+		${props => props.maxWidth && (`
+			max-width: ${props.maxWidth}%;
+			width: ${props.maxWidth}%;
+		`)};
+	`};
+
 	${ breakpoint('xl')`
 		display: flex;
 		flex-direction: column;
 		align-items: flex-end;
+
+		${props => props.maxWidth && (`
+			max-width: ${props.maxWidth}%;
+			width: ${props.maxWidth}%;
+		`)};
 	`}
 
 	> div {
@@ -35,27 +64,38 @@ const Figcaption = Styled.figcaption`
 
 export default class Photograph extends Component {
     render() {
-		const { image, alt, caption, download } = this.props;
+		const { className, image, alt, caption, download, hideCaption } = this.props;
 
         return (
-			<Figure>
+			<Figure
+				maxWidth={className && className < 1 ? '49' : '100'}
+				maxHeight={className && className < 1 ? 600 : null}
+			>
                 <Image
+					className={className}
                     fluid={ image }
                     alt={ alt }
                     imgStyle={ {width: `100%`} }
                 />
-                <Figcaption>
-					{ caption }
-					{ download && ' – ' }
-					{ download && <a href={ download } target="_blank" rel="noopener noreferrer">Download</a> }
-				</Figcaption>
+				{!hideCaption && (
+					<Figcaption>
+						{ caption }
+						{ download && ' – ' }
+						{ download && <a href={ download } target="_blank" rel="noopener noreferrer">Download</a> }
+					</Figcaption>
+				)}
             </Figure>
         )
     }
 }
 
+Photograph.defaultProps = {
+	hideCaption: false
+};
+
 Photograph.propTypes = {
 	image: PropTypes.object.isRequired,
 	alt: PropTypes.string,
-	caption: PropTypes.string
+	caption: PropTypes.string,
+	hideCaption: PropTypes.bool
 };

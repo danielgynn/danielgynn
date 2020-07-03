@@ -7,6 +7,7 @@ import { scale } from '../utils/typography';
 import PageLayout from '../components/PageLayout';
 import SEO from '../components/seo';
 import Photograph from '../components/Photograph';
+import Collection from '../components/Photography/Collection';
 
 const HeaderWrapper = Styled.div`
 	width: 100%;
@@ -20,11 +21,28 @@ const HeaderWrapper = Styled.div`
 	` }
 `;
 
+const CollectionsGrid = Styled.div`
+	display: grid;
+	grid-gap: 48px 24px;
+	grid-template-columns: repeat(1, minmax(0,1fr));
+	
+	${ breakpoint('md')`
+		grid-template-columns: repeat(2,minmax(0,1fr));
+	` }
+
+	${ breakpoint('xl')`
+		grid-template-columns: repeat(2,minmax(0,1fr));
+	` }
+`;
+
 class PhotographyIndex extends React.Component {
 	render() {
-		const { data } = this.props
+		const { data } = this.props;
 		const { location, initials, title, email, social } = data.site.siteMetadata;
-		const { photos } = data.allPhotographyJson.edges[0].node;
+		const photography = data.allPhotographyJson.edges;
+		const collections = data.allCollectionsJson.edges;
+
+		const {photos} = photography.find(n => n.node.photos).node;
 
 		return (
 			<PageLayout
@@ -52,6 +70,36 @@ class PhotographyIndex extends React.Component {
 					</p>
 				</HeaderWrapper>
 
+				<h3 style={
+					{
+						...scale(.75),
+						fontFamily: `Work Sans, sans-serif`,
+						marginTop: '2rem',
+						fontWeight: '700',
+						lineHeight: '2rem'
+					}}>
+					Collections
+				</h3>
+
+				<CollectionsGrid>
+					{collections.map((collection, collectionIndex) => (
+						<Collection
+							key={`${collection.node.name}${collectionIndex}`}
+							{...collection.node}
+						/>
+					))}
+				</CollectionsGrid>
+
+				<h3 style={
+					{
+						...scale(.75),
+						fontFamily: `Work Sans, sans-serif`,
+						marginTop: '2rem',
+						fontWeight: '700',
+						lineHeight: '2rem'
+					}}>
+					Favourites
+				</h3>
 				{photos.map((photo, photoIndex) => (
 					<Photograph
 						key={photoIndex}
@@ -74,11 +122,50 @@ export const pageQuery = graphql`
 					photos {
 						src {
 							childImageSharp {
-								fluid(maxWidth: 1080, maxHeight: 750) {
-									...GatsbyImageSharpFluid
-							  	}
+								fluid(maxWidth: 1080, quality: 100) {
+									aspectRatio
+									...GatsbyImageSharpFluid_withWebp
+								}
 							}
 						}
+						caption
+						download
+						alt
+					}
+				}
+			}
+		}
+		allCollectionsJson {
+			edges {
+				node {
+					name
+					date
+					slug
+					featured {
+						src {
+							childImageSharp {
+								fluid(maxWidth: 1080, maxHeight: 750, quality: 100) {
+									...GatsbyImageSharpFluid
+								}
+							}
+						}
+						caption
+						download
+						alt
+					}
+					sub {
+						src {
+							childImageSharp {
+								fluid(maxWidth: 1080, maxHeight: 750, quality: 100) {
+									...GatsbyImageSharpFluid
+								}
+							}
+						}
+						caption
+						download
+						alt
+					}
+					photos {
 						caption
 						download
 						alt

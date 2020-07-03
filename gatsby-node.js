@@ -1,11 +1,7 @@
 const path = require(`path`);
 const { createFilePath } = require(`gatsby-source-filesystem`);
 
-exports.createPages = ({ graphql, actions }) => {
-	const { createPage } = actions;
-
-	const blogPost = path.resolve(`./src/templates/blog-post.js`);
-
+function getBlogData(graphql) {
 	return graphql(
 		`
 		{
@@ -25,19 +21,40 @@ exports.createPages = ({ graphql, actions }) => {
 				}
 			}
 		}
-		`
-	).then(result => {
-		if (result.errors) {
-			throw result.errors;
-		}
+	`);
+}
 
-		// Create blog posts pages.
-		const posts = result.data.allMarkdownRemark.edges;
+function getCollections(graphql) {
+	return graphql(
+		`{
+			allCollectionsJson {
+				edges {
+					node {
+						slug
+					}
+				}
+			}
+		}
+	`);
+}
+
+exports.createPages = async ({ graphql, actions }) => {
+	const { createPage } = actions;
+
+	const blogPost = path.resolve(`./src/templates/blog-post.js`);
+
+	const allBlogPosts = await getBlogData(graphql);
+	const allCollections = await getCollections(graphql);
+
+	if (allBlogPosts.errors) {
+		throw allBlogPosts.errors;
+	} else {
+		const posts = allBlogPosts.data.allMarkdownRemark.edges;
 
 		posts.forEach((post, index) => {
 			const previous = index === posts.length - 1 ? null : posts[index + 1].node;
 			const next = index === 0 ? null : posts[index - 1].node;
-
+	
 			createPage({
 				path: post.node.fields.slug,
 				component: blogPost,
@@ -48,8 +65,22 @@ exports.createPages = ({ graphql, actions }) => {
 				},
 			});
 		});
+	}
 
-		return null;
+	if (allCollections.error) {
+		throw allCollections.error;
+	}
+
+	allCollections.data.allCollectionsJson.edges.forEach(edge => {
+		const collection = edge.node;
+
+		createPage({
+			path: `/photography/${collection.slug}/`,
+			component: require.resolve('./src/templates/photo-collection.jsx'),
+			context: {
+				slug: collection.slug
+			},
+		});
 	});
 }
 
