@@ -34,6 +34,7 @@ export const query = graphql`
             name
             date
             slug
+            next
             description
             featured {
                 src {
@@ -108,7 +109,7 @@ class CollectionTemplate extends Component {
                 {collection.description && (
                     <p>{collection.description}</p>
                 )}
-                <p>{collection.photos.length} photos — Taken {collection.date}</p>
+                <p>{collection.photos.length} photos {collection.date && `— Taken ${collection.date}`}</p>
                 <Link to="/photography">← Back to Photography</Link>
             </div>  
 
@@ -122,6 +123,13 @@ class CollectionTemplate extends Component {
                     />
                 ))}
             </PhotoContainer>
+
+            <div style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
+                <Link to="/photography/">← Back to Photography</Link>
+                {collection.next && (
+                    <Link to={`/photography/${collection.next}/`}>Next Collection →</Link>
+                )}
+            </div>
         </PageLayout>
     )
   }

@@ -106,6 +106,17 @@ const FooterLinks = Styled.div`
 	display: flex;
 	flex-direction: column;
 	margin-top: 1rem;
+	margin-left: 2rem;
+
+	&:first-child {
+		margin-left: 0;
+	}
+`;
+
+const FooterLinksWrapper = Styled.div`
+	display: flex;
+	align-items: flex-end;
+	justify-content: flex-end;
 `;
 
 const ListLink = ({to, children}) => (
@@ -151,14 +162,20 @@ class PageLayout extends React.Component {
 								<FooterText>{email}</FooterText>
 							</div>
 
-							{social && (
+							<FooterLinksWrapper>
 								<FooterLinks>
-									<a href={social.twitter} target='_blank' rel='noopener noreferrer'>Twitter</a>
-									<a href={social.instagram} target='_blank' rel='noopener noreferrer'>Instagram</a>
-									<a href={social.linkedin} target='_blank' rel='noopener noreferrer'>LinkedIn</a>
-									<a href={social.goodreads} target='_blank' rel='noopener noreferrer'>Goodreads</a>
+									<Link to='/'>About</Link>
+									<Link to='/photography/'>Photography</Link>
 								</FooterLinks>
-							)}
+								{social && (
+									<FooterLinks>
+										<a href={social.twitter} target='_blank' rel='noopener noreferrer'>Twitter</a>
+										<a href={social.instagram} target='_blank' rel='noopener noreferrer'>Instagram</a>
+										<a href={social.linkedin} target='_blank' rel='noopener noreferrer'>LinkedIn</a>
+										<a href={social.goodreads} target='_blank' rel='noopener noreferrer'>Goodreads</a>
+									</FooterLinks>
+								)}
+							</FooterLinksWrapper>
 						</div>
 					</Footer>
 				</div>

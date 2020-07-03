@@ -1,8 +1,49 @@
 [
     {
+        "name": "Favourites",
+        "description": "",
+        "slug": "favourites",
+        "next": "india",
+        "featured": {
+            "src": "../assets/photography/edinburgh.jpg",
+            "alt": "Edinburgh, Scotland, UK"
+        },
+        "sub": [
+            {
+                "src": "../assets/photography/bicycle_thieves.jpeg",
+                "alt": "Bicycle Thieves – Rome, Italy"
+            },
+            {
+                "src": "../assets/photography/roads.jpg",
+                "alt": "Munnar, Kerela, India"
+            }
+        ],
+        "photos": [
+            {
+                "caption": "Edinburgh, Scotland, UK",
+                "src": "../assets/photography/edinburgh.jpg",
+                "alt": "Edinburgh, Scotland, UK",
+                "download": "https://unsplash.com/photos/k9EZzRow1cA"
+            },
+            {
+                "caption": "Rome, Italy",
+                "src": "../assets/photography/bicycle_thieves.jpeg",
+                "alt": "Bicycle Thieves – Rome, Italy",
+                "download": "https://unsplash.com/photos/CUh69eo3MyU"
+            },
+            {
+                "caption": "Munnar, Kerela, India",
+                "src": "../assets/photography/roads.jpg",
+                "alt": "Munnar, Kerela, India",
+                "download": "https://unsplash.com/photos/x1mGwkffsCU"
+            }
+        ]
+    },
+    {
         "name": "India",
         "description": "",
         "slug": "india",
+        "next": "italy",
         "date": "2018 - 2019",
         "featured": {
             "caption": "Munnar, Kerela, India",
@@ -104,6 +145,7 @@
         "description": "",
         "date": "July 2017",
         "slug": "italy",
+        "next": "berlin",
         "featured": {
             "caption": "Rome, Italy",
             "src": "../assets/photography/bicycle_thieves.jpeg",
@@ -160,6 +202,57 @@
                 "src": "../assets/photography/italy/3.jpeg",
                 "alt": "Rome, Italy",
                 "download": "https://unsplash.com/photos/TzlhnIofMUg"
+            }
+        ]
+    },
+    {
+        "name": "Berlin",
+        "description": "",
+        "slug": "berlin",
+        "featured": {
+            "src": "../assets/photography/berlin/1.jpeg",
+            "alt": "Berlin, Germany"
+        },
+        "sub": [
+            {
+                "src": "../assets/photography/berlin/2.jpeg",
+                "alt": "Berlin, Germany"
+            },
+            {
+                "src": "../assets/photography/berlin/3.jpeg",
+                "alt": "Berlin, Germany"
+            }
+        ],
+        "photos": [
+            {
+                "src": "../assets/photography/berlin/1.jpeg",
+                "alt": "Berlin, Germany",
+                "caption": "Berlin, Germany",
+                "download": ""
+            },
+            {
+                "src": "../assets/photography/berlin/2.jpeg",
+                "alt": "Berlin, Germany",
+                "caption": "Berlin, Germany",
+                "download": ""
+            },
+            {
+                "src": "../assets/photography/berlin/3.jpeg",
+                "alt": "Berlin, Germany",
+                "caption": "Berlin, Germany",
+                "download": ""
+            },
+            {
+                "src": "../assets/photography/berlin/4.jpeg",
+                "alt": "Berlin, Germany",
+                "caption": "Berlin, Germany",
+                "download": ""
+            },
+            {
+                "src": "../assets/photography/berlin/5.jpeg",
+                "alt": "Berlin, Germany",
+                "caption": "Berlin, Germany",
+                "download": ""
             }
         ]
     }

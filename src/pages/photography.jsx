@@ -23,15 +23,15 @@ const HeaderWrapper = Styled.div`
 
 const CollectionsGrid = Styled.div`
 	display: grid;
-	grid-gap: 48px 24px;
-	grid-template-columns: repeat(1, minmax(0,1fr));
+	grid-gap: 24px 24px;
+	grid-template-columns: repeat(${props => props.cards || 1}, minmax(0,1fr));
 	
 	${ breakpoint('md')`
-		grid-template-columns: repeat(2,minmax(0,1fr));
+		grid-template-columns: repeat(${props => props.cards || 2},minmax(0,1fr));
 	` }
 
 	${ breakpoint('xl')`
-		grid-template-columns: repeat(2,minmax(0,1fr));
+		grid-template-columns: repeat(${props => props.cards || 2},minmax(0,1fr));
 	` }
 `;
 
@@ -39,10 +39,7 @@ class PhotographyIndex extends React.Component {
 	render() {
 		const { data } = this.props;
 		const { location, initials, title, email, social } = data.site.siteMetadata;
-		const photography = data.allPhotographyJson.edges;
 		const collections = data.allCollectionsJson.edges;
-
-		const {photos} = photography.find(n => n.node.photos).node;
 
 		return (
 			<PageLayout
@@ -81,32 +78,20 @@ class PhotographyIndex extends React.Component {
 					Collections
 				</h3>
 
+				{/* <CollectionsGrid cards={1}>
+					<Collection
+						{...collections[0].node}
+					/>
+				</CollectionsGrid> */}
+
 				<CollectionsGrid>
-					{collections.map((collection, collectionIndex) => (
+					{collections.slice(0, collections.length).map((collection, collectionIndex) => (
 						<Collection
 							key={`${collection.node.name}${collectionIndex}`}
 							{...collection.node}
 						/>
 					))}
 				</CollectionsGrid>
-
-				<h3 style={
-					{
-						...scale(.75),
-						fontFamily: `Work Sans, sans-serif`,
-						marginTop: '2rem',
-						fontWeight: '700',
-						lineHeight: '2rem'
-					}}>
-					Favourites
-				</h3>
-				{photos.map((photo, photoIndex) => (
-					<Photograph
-						key={photoIndex}
-						{...photo}
-						image={photo.src.childImageSharp.fluid}
-					/>
-				))}
 			</PageLayout>
 		)
 	}
@@ -116,25 +101,6 @@ export default PhotographyIndex;
 
 export const pageQuery = graphql`
 	query {
-		allPhotographyJson {
-			edges {
-				node {
-					photos {
-						src {
-							childImageSharp {
-								fluid(maxWidth: 1080, quality: 100) {
-									aspectRatio
-									...GatsbyImageSharpFluid_withWebp
-								}
-							}
-						}
-						caption
-						download
-						alt
-					}
-				}
-			}
-		}
 		allCollectionsJson {
 			edges {
 				node {

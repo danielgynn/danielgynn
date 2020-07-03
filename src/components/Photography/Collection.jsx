@@ -54,7 +54,7 @@ position: relative;
 `;
 
 const CollectionSubFeatured = Styled.div`
-display: flex;
+    display: flex;
     flex-direction: column;
     width: 30%;
     margin-left: 2px;
@@ -128,7 +128,7 @@ class Collection extends Component {
                     </CollectionPreviewWrapper>
                     <CollectionDetails>
                         <CollectionName>{name}</CollectionName>
-                        <p>{photos.length} photos — Taken {date}</p>
+                        <p>{photos.length} photos {date && `— Taken ${date}`}</p>
                     </CollectionDetails>
                 </div>
             </CollectionWrapper>
