@@ -71,7 +71,7 @@ const CollectionSubFeaturedItem = Styled.div`
 `;
 
 const CollectionFeaturedImage = Styled(Image)`
-position: absolute;
+    position: absolute !important;
     width: 100%;
     height: 100%;
     left: 0;

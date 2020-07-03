@@ -69,7 +69,7 @@ export default class Photograph extends Component {
         return (
 			<Figure
 				maxWidth={className && className < 1 ? '49' : '100'}
-				maxHeight={className && className < 1 ? 600 : null}
+				maxHeight={className && className < 1 ? 550 : null}
 			>
                 <Image
 					className={className}
