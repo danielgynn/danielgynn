@@ -1,3 +1,11 @@
+require("dotenv").config();
+
+const {
+    STRAVA_CLIENT_ID,
+    STRAVA_CLIENT_SECRET,
+    STRAVA_TOKEN,
+} = process.env;
+
 module.exports = {
 	siteMetadata: {
 		initials: 'DG',
@@ -42,7 +50,7 @@ module.exports = {
 				path: `${__dirname}/content/assets`,
 				name: `assets`,
 			},
-		},
+        },
 		{
 			resolve: `gatsby-transformer-remark`,
 			options: {
@@ -92,6 +100,21 @@ module.exports = {
 			options: {
 				pathToConfigModule: `src/utils/typography`,
 			},
-		},
+        },
+        {
+            resolve: "gatsby-source-strava",
+            options: {
+                debug: true,
+                stravaClientId: STRAVA_CLIENT_ID,
+                stravaClientSecret: STRAVA_CLIENT_SECRET,
+                stravaToken: STRAVA_TOKEN
+            },
+        },
+        {
+            resolve: `gatsby-plugin-env-variables`,
+            options: {
+                allowList: ["MAPBOX_TOKEN"]
+            },
+        },
 	],
 }
