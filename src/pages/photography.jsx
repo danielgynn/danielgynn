@@ -6,7 +6,6 @@ import breakpoint from 'styled-components-breakpoint';
 import { scale } from '../utils/typography';
 import PageLayout from '../components/PageLayout';
 import SEO from '../components/seo';
-import Photograph from '../components/Photograph';
 import Collection from '../components/Photography/Collection';
 
 const HeaderWrapper = Styled.div`
@@ -77,12 +76,6 @@ class PhotographyIndex extends React.Component {
 					}}>
 					Collections
 				</h3>
-
-				{/* <CollectionsGrid cards={1}>
-					<Collection
-						{...collections[0].node}
-					/>
-				</CollectionsGrid> */}
 
 				<CollectionsGrid>
 					{collections.slice(0, collections.length).map((collection, collectionIndex) => (

@@ -158,7 +158,7 @@ class PageLayout extends React.Component {
 					<Footer>
 						<div>
 							<div>
-								<FooterText><strong>{title}</strong></FooterText>
+								<FooterText><strong>{title}</strong> © {new Date().getFullYear()}</FooterText>
 								<FooterText>{email}</FooterText>
 							</div>
 

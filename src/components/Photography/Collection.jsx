@@ -48,9 +48,9 @@ const CollectionPreview = Styled.div`
 `;
 
 const CollectionFeatured = Styled.div`
-width: 70%;
-background: ${props => props.theme.colors.secondary};
-position: relative;
+    width: 70%;
+    background: ${props => props.theme.colors.secondary};
+    position: relative;
 `;
 
 const CollectionSubFeatured = Styled.div`
