@@ -1,6 +1,6 @@
 ## Personal website of Daniel Gynn
 
-https://danielgynn.xyz
+https://danielgynn.me
 
 Built with Gatsby and deployed with Netlify.
 
