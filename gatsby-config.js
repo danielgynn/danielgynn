@@ -4,8 +4,10 @@ module.exports = {
 		title: `Daniel Gynn`,
 		author: `Daniel Gynn`,
 		email: 'danielgynn94@gmail.com',
-		description: `Daniel is a frontend engineer and product designer with over four years of professional experience and a degree in Computer Science.`,
-		siteUrl: `https://danielgynn.com/`,
+        description: `
+            Daniel is a frontend engineer and product designer with over five years of professional experience and a degree in Computer Science.
+        `,
+		siteUrl: `https://danielgynn.me/`,
 		social: {
 			twitter: `https://twitter.com/danielgynn`,
 			instagram: `https://instagram.com/danielgynn`,
