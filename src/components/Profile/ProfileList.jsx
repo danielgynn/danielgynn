@@ -15,6 +15,8 @@ const ListWrapper = Styled.div`
 const ListText = Styled.p`
     margin: 0;
     ${props => props.fontStyle && `font-style: ${props.fontStyle};`};
+    ${props => props.fontWeight && `font-weight: ${props.fontWeight};`};
+    ${props => props.color && `color: ${props.theme.colors[props.color]};`};
 `;
 
 class ProfileList extends Component {
@@ -35,7 +37,7 @@ class ProfileList extends Component {
                             {!item.link && item.linkText && item.linkText }
                         </ListText>
                         {item.sub && (
-                            <ListText fontStyle='italic'>{item.sub}</ListText>
+                            <ListText fontStyle='italic' color='textSecondary'>{item.sub}</ListText>
                         )}
                     </ListWrapper>
                 ))}

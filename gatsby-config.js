@@ -16,6 +16,7 @@ module.exports = {
         },
         pages: [
             {title: 'About', link: '/'},
+            {title: 'Work', link: '/work/'},
             {title: 'Photography', link: '/photography/'}
         ]
 	},

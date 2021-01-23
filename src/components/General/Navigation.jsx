@@ -57,9 +57,13 @@ const NavListItem = styled.li`
 const StyledLink = styled(Link)`
 	color: ${ props => props.theme.colors.text } !important;
     transition: ${ props => props.theme.transitions.default };
+    border: none;
+    
 
 	&:hover {
-		color: ${ props => props.theme.colors.primary } !important;
+        color: ${ props => props.theme.colors.primary } !important;
+        background: none;
+        text-decoration: underline;
 	}
 `;
 

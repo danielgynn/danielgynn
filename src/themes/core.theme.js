@@ -3,7 +3,8 @@ export const core_theme = {
         backgroundColor: '#222831',
         color: '#ececec',
         fontFamily: 'Nunito Sans, Helvetica, sans-serif',
-        fontWeight: 500
+        fontWeight: 500,
+        fontSize: '14px'
     },
     breakpoints: {
         xs: 0,
@@ -90,7 +91,7 @@ export const core_theme = {
         inputHeight: '45px',
         containerWidth: '1080px',
         container: {
-            desktop: '960px',
+            desktop: '900px',
             mobile: '700px',
             tablet: '900px'
         },

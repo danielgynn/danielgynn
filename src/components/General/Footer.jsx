@@ -6,7 +6,7 @@ import breakpoint from 'styled-components-breakpoint';
 const Wrapper = styled.footer`
 	font-size: .9rem;
 	margin-top: 3rem;
-	background: ${props => props.theme.colors.secondary};
+	background: ${props => props.theme.body.backgroundColor};
 	padding-top: 3rem;
 	padding-bottom: 3rem;
 
@@ -43,7 +43,16 @@ const FooterLinks = styled.div`
 	display: flex;
 	flex-direction: column;
 	margin-top: 1rem;
-	margin-left: 2rem;
+    margin-left: 2rem;
+    
+    a {
+        border: none;
+
+        &:hover {
+            background: none;
+            text-decoration: underline;
+        }
+    }
 
 	&:first-child {
 		margin-left: 0;

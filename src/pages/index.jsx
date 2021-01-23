@@ -73,7 +73,7 @@ export const pageQuery = graphql`
 		allCopyJson {
 			edges {
 				node {
-					introduction
+                    introduction
 					profile {
 						name
 						list {

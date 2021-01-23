@@ -1,14 +1,52 @@
 {
-    "introduction": "Hey there — I'm a frontend engineer and product designer with over four years of professional experience and a degree in computer science. I mostly specialise in React/Redux stacks, but I also have experience with Vue, Angular, and Ember.js. I've worked in various industries, including: artificial intelligence, healthcare, and genomics. I became involved in frontend engineering as the perfect way to blend my interests in engineering principles and utilising my keen eye for design.",
-    "profile": [{
-            "name": "Education",
-            "list": [{
-                "text": "Computer Science with a Year in Industry",
-                "sub": "2013-2017",
-                "link": "https://www.kent.ac.uk/",
-                "linkText": "University of Kent"
-            }]
+    "introduction": "Hey there — I'm a frontend engineer and product designer with over five years of professional experience and a degree in computer science. I mostly specialise in React/Redux stacks, but I also have experience with Vue, Angular, and Ember.js. I've worked in various industries, including: artificial intelligence, healthcare, and genomics. I became involved in frontend engineering as the perfect way to blend my interests in engineering principles and utilising my keen eye for design.",
+    "currently": "Currently, I'm working at Filament AI as the Lead Frontend Engineer, where I design and build the frontend architecture for AP and Machine Learning solutions.",
+    "work": [
+        {
+            "role": "Lead Frontend Engineer",
+            "dates": "Jun 2019 — Present",
+            "link": "https://filament.ai",
+            "company": "Filament AI",
+            "logo": "https://media-exp1.licdn.com/dms/image/C560BAQE2BHWWaRwirg/company-logo_200_200/0/1580811579158?e=1619654400&v=beta&t=kcRRGeCBoeEOVyIuWGbllwGj-zKGG7r71dhhBgKQvfI",
+            "content": [
+                "Leads the direction of frontend architecture and implementation across Filament AI products and solutions. Responsibilities include: leading the development processes, product design, and implementation of various projects; ownership and maintenance of the in-house UI component library and design system; managing and conducting code reviews for other frontend developers; and, making general frontend technology decisions in order to maintain high quality and modern code.",
+                "As the lead frontend engineer and product designer, most of my time is spent building Syfter.ai - a highly scalable platform designed to help clients gain insights on their company universe using an intuitive dashboard, a multitude of data sources and articles from around the web, and also utilising internal machine learning models.",
+                "I am also the creator and lead maintainer of our in-house UI component library, Filament UI, which is used throughout the company in all of our web applications. This project acted both as a library of re-usable React components and a highly customisable design system, useful for creating rich applications of any scale."
+            ],
+            "links": ["https://syfter.ai"]
         },
+        {
+            "role": "Frontend Engineer",
+            "dates": "Jul 2017 - Jun 2019",
+            "link": "https://filament.ai",
+            "logo": "https://media-exp1.licdn.com/dms/image/C560BAQE2BHWWaRwirg/company-logo_200_200/0/1580811579158?e=1619654400&v=beta&t=kcRRGeCBoeEOVyIuWGbllwGj-zKGG7r71dhhBgKQvfI",
+            "company": "Filament AI",
+            "content": ["As part of the Filament Solutions team, I was responsible for designing and building Filament Dash, a knowledge management dashboard designed to help companies gain insights on their data pool. During this time, I also steered the company's frontend technological solutions to a more modern and sustainable React/Redux stack, while helping to maintain and transition any legacy projects."]
+        },
+        {
+            "role": "Freelance Frontend Engineer",
+            "dates": "2017-Present",
+            "company": "Various",
+            "content": ["Alongside my full-time role, I have also provided frontend development and product design services as a freelancer. Notable projects include designing, building, and maintaining the entire frontend architecture of an e-learning platform for medical and dental students. As a freelancer, I have worked closely with clients, transforming business requirements into high-fidelity designs as well as building scalable platforms that work for a large user base."]
+        },
+        {
+            "role": "Frontend Developer",
+            "dates": "Aug 2016 - Jun 2017",
+            "link": "https://repositive.io",
+            "company": "Repositive",
+            "logo": "https://logo.clearbit.com/repositive.io",
+            "content": ["After my initial placement year with Repositive, I continued to work within their development team throughout my final year at university, on a mostly remote basis. During this time I made contributions to the ongoing development of the data discovery platform and helped to conduct code reviews for the Ember.js code base."]
+        },
+        {
+            "role": "Junior Web Developer",
+            "dates": "Aug 2015 - Aug 2016",
+            "link": "https://repositive.io",
+            "company": "Repositive",
+            "logo": "https://logo.clearbit.com/repositive.io",
+            "content": ["Joining Repositive in a junior role as part of my industrial placement year, I worked with a small team to help build an initial release of their data discovery platform for researchers within the field of genomics. I worked closely with other developers and designed to gain a great understanding of development processes, while benefiting from the opportunity to contribute heavily to the code base. Through my many opportunities to attend conferences on technology and science, I learned a great deal about the industry, as well as the importance of establishing and maintaining good relationships with peers."]
+        }
+    ],
+    "profile": [
         {
             "name": "Career",
             "list": [{
@@ -35,6 +73,15 @@
                     "linkText": "Repositive"
                 }
             ]
+        },
+        {
+            "name": "Education",
+            "list": [{
+                "text": "Computer Science with a Year in Industry",
+                "sub": "2013-2017",
+                "link": "https://www.kent.ac.uk/",
+                "linkText": "University of Kent"
+            }]
         },
         {
             "name": "Speaking",
