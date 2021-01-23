@@ -28,6 +28,10 @@ export const query = graphql`
                     goodreads
                     linkedin
                 }
+                pages {
+                    title
+                    link
+                }
             }
         }
         collectionsJson(slug: {eq: $slug}) {
@@ -82,7 +86,7 @@ export const query = graphql`
 class CollectionTemplate extends Component {
   render() {
     const { data } = this.props;
-    const { location, initials, title, email, social } = data.site.siteMetadata;
+    const { location, initials, title, email, social, pages } = data.site.siteMetadata;
     const collection = data.collectionsJson;
 
     return (
@@ -92,6 +96,7 @@ class CollectionTemplate extends Component {
             title={title}
             email={email}
             social={social}
+            pages={pages}
         >
             <Seo title='Photography' />
 

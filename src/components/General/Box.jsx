@@ -14,6 +14,7 @@ const Wrapper = Styled.div`
         ${props.alignItems && `align-items: ${Array.isArray(props.alignItems) ? props.alignItems[2] : props.alignItems};`};
         ${props.justifyContent && `justify-content: ${Array.isArray(props.justifyContent) ? props.justifyContent[2] : props.justifyContent};`};
         ${props.flexDirection && `flex-direction: ${Array.isArray(props.flexDirection) ? props.flexDirection[2] : props.flexDirection};`};
+        ${props.flexWrap && `flex-wrap: ${props.flexWrap};`};
     `};
 
     ${breakpoint('md')`

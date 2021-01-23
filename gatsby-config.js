@@ -99,6 +99,14 @@ module.exports = {
 			options: {
 				pathToConfigModule: `src/utils/typography`,
 			},
-		},
+        },
+        {
+            resolve: `gatsby-source-instagram`,
+            options: {
+                username: `244718663`,
+                maxPosts: 10,
+                paginate: 10
+            },
+          },
 	],
 }
