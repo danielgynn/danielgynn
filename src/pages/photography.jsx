@@ -5,7 +5,7 @@ import breakpoint from 'styled-components-breakpoint';
 
 import { scale } from '../utils/typography';
 import PageLayout from '../components/PageLayout';
-import SEO from '../components/seo';
+import Seo from '../components/Seo';
 import Collection from '../components/Photography/Collection';
 
 const HeaderWrapper = Styled.div`
@@ -37,7 +37,7 @@ const CollectionsGrid = Styled.div`
 class PhotographyIndex extends React.Component {
 	render() {
 		const { data } = this.props;
-		const { location, initials, title, email, social } = data.site.siteMetadata;
+		const { location, initials, title, email, social, pages } = data.site.siteMetadata;
 		const collections = data.allCollectionsJson.edges;
 
 		return (
@@ -46,9 +46,10 @@ class PhotographyIndex extends React.Component {
 				initials={ initials }
 				title={title}
 				email={email}
-				social={social}
+                social={social}
+                pages={pages}
 			>
-				<SEO title='Photography' />
+				<Seo title='Photography' />
 
 				<HeaderWrapper style={ {marginBottom: '3rem'}}>
 					<h2 style={
@@ -143,7 +144,11 @@ export const pageQuery = graphql`
 					instagram
 					goodreads
 					linkedin
-				}
+                }
+                pages {
+                    title
+                    link
+                }
 			}
 		}
 	}

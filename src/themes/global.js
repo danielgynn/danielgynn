@@ -13,6 +13,9 @@ const GlobalStyle = createGlobalStyle`
         text-decoration: none;
         display: inline-block;
         cursor: pointer;
+        transition-property: text-decoration;
+        transition-duration: .2s;
+        transition-timing-function: ease-in-out;
     }
 
     a:hover {

@@ -13,7 +13,11 @@ module.exports = {
 			instagram: `https://instagram.com/danielgynn`,
 			linkedin: 'https://linkedin.com/in/danielgynn',
 			goodreads: 'https://www.goodreads.com/user/show/31069417-daniel-gynn'
-		},
+        },
+        pages: [
+            {title: 'About', link: '/'},
+            {title: 'Photography', link: '/photography/'}
+        ]
 	},
 	plugins: [
 		`gatsby-transformer-json`,

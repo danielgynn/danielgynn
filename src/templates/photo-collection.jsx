@@ -3,7 +3,7 @@ import { Link, graphql } from "gatsby";
 
 import { scale } from '../utils/typography';
 import PageLayout from "../components/PageLayout";
-import SEO from '../components/seo';
+import Seo from '../components/Seo';
 import Photograph from '../components/Photograph';
 import styled from "styled-components";
 
@@ -93,7 +93,7 @@ class CollectionTemplate extends Component {
             email={email}
             social={social}
         >
-            <SEO title='Photography' />
+            <Seo title='Photography' />
 
             <div style={{marginBottom: '2rem'}}>
                 <h2 style={

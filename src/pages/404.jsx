@@ -2,14 +2,14 @@ import React from 'react';
 import { graphql, Link } from 'gatsby';
 
 import PageLayout from '../components/PageLayout';
-import SEO from '../components/seo';
+import Seo from '../components/Seo';
 import Box from '../components/General/Box';
 import Heading from '../components/General/Heading';
 
 const PageNotFound = ({
     data
 }) => {
-    const {location, initials, title, email, social} = data.site.siteMetadata;
+    const {location, initials, title, email, social, pages} = data.site.siteMetadata;
 
     return (
         <PageLayout
@@ -18,8 +18,9 @@ const PageNotFound = ({
             initials={initials}
             email={email}
             social={social}
+            pages={pages}
         >
-            <SEO title='404: Not Found' />
+            <Seo title='404: Not Found' />
             <Box height='50vh'>
                 <Heading text='Page Not Found' />
                 <Link to='/'>← Back Home</Link>
@@ -41,7 +42,11 @@ export const pageQuery = graphql`
 					instagram
 					goodreads
 					linkedin
-				}
+                }
+                pages {
+                    title
+                    link
+                }
 			}
 		}
     }
