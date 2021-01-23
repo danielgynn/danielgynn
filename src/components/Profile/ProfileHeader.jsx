@@ -80,7 +80,7 @@ class ProfileHeader extends Component {
                 </ProfileHeaderContainer>
 
                 <ProfileDescription>{introduction}</ProfileDescription>
-                <Link to='/portfolio/'>Read More →</Link>
+                <Link to='/work/'>Read More →</Link>
             </Fragment>
         )
     }

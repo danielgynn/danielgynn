@@ -1,45 +1,55 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { graphql } from 'gatsby';
 
 import PageLayout from '../components/PageLayout';
 import Box from '../components/General/Box';
 import ProfileHeader from '../components/Profile/ProfileHeader';
 import ProfileDetails from '../components/Profile/ProfileDetails';
-import SEO from '../components/seo';
+import Seo from '../components/Seo';
+import InstagramFeed from '../components/Profile/InstagramFeed';
 
-class SiteIndex extends Component {
-	render() {
-		const { data, location } = this.props;
-		const { author, title, email, initials, social } = data.site.siteMetadata;
-        const { profile, introduction } = data.allCopyJson.edges[0].node;
-        
-    	return (
-			<PageLayout
-				location={location}
-				initials={initials}
-				title={title}
-				email={email}
-				social={social}
-			>
-				<SEO title='Home' />
-				<Box
-					width='100%'
-					pb='3rem'
-				>
-					<ProfileHeader
-						introduction={introduction}
-					/>
-					<ProfileDetails
-						profile={profile}
-						avatar={{
-							image: data.avatar,
-							alt: author
-						}}
-					/>
-				</Box>			
-			</PageLayout>
-		)
- 	}
+const SiteIndex = ({
+    data,
+    location
+}) => {
+    const { author, title, email, initials, social, pages } = data.site.siteMetadata;
+    const { profile, introduction } = data.allCopyJson.edges[0].node;
+    const instagramFeed = (data.allInstaNode.edges || []).map(e => e.node).sort((a, b) => b.timestamp - a.timestamp).slice(0, 12);
+
+    return (
+        <PageLayout
+            location={location}
+            initials={initials}
+            title={title}
+            email={email}
+            social={social}
+            pages={pages}
+        >
+            <Seo title='Home' />
+            <Box
+                width='100%'
+                pb='3rem'
+            >
+                <ProfileHeader
+                    introduction={introduction}
+                />
+                <ProfileDetails
+                    profile={profile}
+                    avatar={{
+                        image: data.avatar,
+                        alt: author
+                    }}
+                />
+                {!!(data.allInstaNode && instagramFeed.length) && (
+                    <Box>
+                        <h3>Recent Instagram Posts</h3>
+                        <InstagramFeed feed={instagramFeed} />
+                        <a href={social.instagram} target="_blank" rel="noreferrer noopener">View More</a>
+                    </Box>
+                )}
+            </Box>			
+        </PageLayout>
+    );
 }
 
 export const pageQuery = graphql`
@@ -62,13 +72,17 @@ export const pageQuery = graphql`
 					instagram
 					goodreads
 					linkedin
-				}
+                }
+                pages {
+                    title
+                    link
+                }
 			}
 		}
 		allCopyJson {
 			edges {
 				node {
-					introduction
+                    introduction
 					profile {
 						name
 						list {
@@ -80,7 +94,17 @@ export const pageQuery = graphql`
 					}
 				}
 			}
-		}
+        }
+        allInstaNode {
+            edges {
+                node {
+                    id
+                    original
+                    timestamp
+                    caption
+                }
+            }
+        }
 	}
 `;
 

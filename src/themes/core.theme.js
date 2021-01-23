@@ -3,7 +3,8 @@ export const core_theme = {
         backgroundColor: '#222831',
         color: '#ececec',
         fontFamily: 'Nunito Sans, Helvetica, sans-serif',
-        fontWeight: 500
+        fontWeight: 500,
+        fontSize: '14px'
     },
     breakpoints: {
         xs: 0,
@@ -16,14 +17,14 @@ export const core_theme = {
         text: '#ececec',
         background: '#222831',
         primary: '#f2a365',
-        secondary: '#30475e',
+        secondary: '#1e2024',
         tertiary: '#f5a623',
         error: '#e74c3c',
         success: '#27ae60',
         warning: '#f5a623',
         white: '#fff',
-        accent: '#f2f2f3',
-        accentTwo: '#e4e5e7',
+        accent: '#2e3238',
+        accentTwo: '#24282e',
         textInverted: '#fff',
         textSecondary: '#818ca2',
         textTertiary: '#c1c5cd',
@@ -41,7 +42,7 @@ export const core_theme = {
         lineHeight: 1.25,
         p: '15px',
         pMobile: '11px',
-        pSmall: '12px',
+        pSmall: '14px',
         label: '12px',
         labelSmall: '9px',
         h1: '46px',
@@ -90,7 +91,7 @@ export const core_theme = {
         inputHeight: '45px',
         containerWidth: '1080px',
         container: {
-            desktop: '960px',
+            desktop: '900px',
             mobile: '700px',
             tablet: '900px'
         },

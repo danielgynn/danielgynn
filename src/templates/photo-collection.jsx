@@ -3,7 +3,7 @@ import { Link, graphql } from "gatsby";
 
 import { scale } from '../utils/typography';
 import PageLayout from "../components/PageLayout";
-import SEO from '../components/seo';
+import Seo from '../components/Seo';
 import Photograph from '../components/Photograph';
 import styled from "styled-components";
 
@@ -27,6 +27,10 @@ export const query = graphql`
                     instagram
                     goodreads
                     linkedin
+                }
+                pages {
+                    title
+                    link
                 }
             }
         }
@@ -82,7 +86,7 @@ export const query = graphql`
 class CollectionTemplate extends Component {
   render() {
     const { data } = this.props;
-    const { location, initials, title, email, social } = data.site.siteMetadata;
+    const { location, initials, title, email, social, pages } = data.site.siteMetadata;
     const collection = data.collectionsJson;
 
     return (
@@ -92,8 +96,9 @@ class CollectionTemplate extends Component {
             title={title}
             email={email}
             social={social}
+            pages={pages}
         >
-            <SEO title='Photography' />
+            <Seo title='Photography' />
 
             <div style={{marginBottom: '2rem'}}>
                 <h2 style={

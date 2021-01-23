@@ -3,7 +3,7 @@ import { Link, graphql } from "gatsby"
 
 import Bio from "../components/bio"
 import PageLayout from "../components/PageLayout"
-import SEO from "../components/seo"
+import Seo from "../components/Seo"
 import { rhythm } from "../utils/typography"
 
 class BlogIndex extends React.Component {
@@ -22,7 +22,7 @@ class BlogIndex extends React.Component {
 				email={email}
 				social={social}
 			>
-        <SEO title="Blog" />
+        <Seo title="Blog" />
         <p>Page under construction...</p>
         { showBlog && (
           <div>

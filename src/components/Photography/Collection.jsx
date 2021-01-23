@@ -8,7 +8,8 @@ import PropTypes from 'prop-types';
 const CollectionWrapper = Styled(Link)`
     width: 100%;
     display: block;
-    margin-bottom: 1rem;
+    margin-bottom: 0rem;
+    border: none;
 
 	${ breakpoint('md')`
 	    width: 100%;
@@ -25,6 +26,7 @@ const CollectionWrapper = Styled(Link)`
     &:hover {
         opacity: .85;
         text-decoration: none;
+        background: none;
     }
 `;
 

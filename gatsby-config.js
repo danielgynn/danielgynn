@@ -4,14 +4,21 @@ module.exports = {
 		title: `Daniel Gynn`,
 		author: `Daniel Gynn`,
 		email: 'danielgynn94@gmail.com',
-		description: `Daniel is a frontend engineer and product designer with over four years of professional experience and a degree in Computer Science.`,
-		siteUrl: `https://danielgynn.com/`,
+        description: `
+            Daniel is a frontend engineer and product designer with over five years of professional experience and a degree in Computer Science.
+        `,
+		siteUrl: `https://danielgynn.me/`,
 		social: {
 			twitter: `https://twitter.com/danielgynn`,
 			instagram: `https://instagram.com/danielgynn`,
 			linkedin: 'https://linkedin.com/in/danielgynn',
 			goodreads: 'https://www.goodreads.com/user/show/31069417-daniel-gynn'
-		},
+        },
+        pages: [
+            {title: 'About', link: '/'},
+            {title: 'Work', link: '/work/'},
+            {title: 'Photography', link: '/photography/'}
+        ]
 	},
 	plugins: [
 		`gatsby-transformer-json`,
@@ -92,6 +99,14 @@ module.exports = {
 			options: {
 				pathToConfigModule: `src/utils/typography`,
 			},
-		},
+        },
+        {
+            resolve: `gatsby-source-instagram`,
+            options: {
+                username: `244718663`,
+                maxPosts: 10,
+                paginate: 10
+            },
+          },
 	],
 }
