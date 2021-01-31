@@ -51,7 +51,7 @@ const SiteIndex = ({
                                 <img
                                     src={job.logo}
                                     alt={`${job.company} Logo`}
-                                    style={{height: '65px', borderRadius: '8px'}}
+                                    style={{height: '65px', borderRadius: '8px', marginLeft: '1rem'}}
                                 />
                             )}
                         </Box>

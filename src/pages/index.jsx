@@ -6,7 +6,6 @@ import Box from '../components/General/Box';
 import ProfileHeader from '../components/Profile/ProfileHeader';
 import ProfileDetails from '../components/Profile/ProfileDetails';
 import Seo from '../components/Seo';
-import InstagramFeed from '../components/Profile/InstagramFeed';
 
 const SiteIndex = ({
     data,
@@ -14,7 +13,6 @@ const SiteIndex = ({
 }) => {
     const { author, title, email, initials, social, pages } = data.site.siteMetadata;
     const { profile, introduction } = data.allCopyJson.edges[0].node;
-    const instagramFeed = (data.allInstaNode.edges || []).map(e => e.node).sort((a, b) => b.timestamp - a.timestamp).slice(0, 12);
 
     return (
         <PageLayout
@@ -40,13 +38,11 @@ const SiteIndex = ({
                         alt: author
                     }}
                 />
-                {!!(data.allInstaNode && instagramFeed.length) && (
-                    <Box>
-                        <h3>Recent Instagram Posts</h3>
-                        <InstagramFeed feed={instagramFeed} />
-                        <a href={social.instagram} target="_blank" rel="noreferrer noopener">View More</a>
-                    </Box>
-                )}
+                <Box style={{borderBottom: '1px solid #2e3238', paddingBottom: '2rem', margin: '3rem 0'}}></Box>
+                <Box>
+                    <h3 style={{marginBottom: '1rem'}}>About this Website</h3>
+                    <p>All content on this website has been written by Daniel Gynn. This website was built using <a href="https://www.gatsbyjs.com" target="_blank" rel="noreferrer no opener">Gatsby</a> and deployed with <a href="https://www.netlify.com" target="_blank" rel="noreferrer no opener">Netlify</a>.</p>
+                </Box>
             </Box>			
         </PageLayout>
     );
@@ -94,16 +90,6 @@ export const pageQuery = graphql`
 					}
 				}
 			}
-        }
-        allInstaNode {
-            edges {
-                node {
-                    id
-                    original
-                    timestamp
-                    caption
-                }
-            }
         }
 	}
 `;
